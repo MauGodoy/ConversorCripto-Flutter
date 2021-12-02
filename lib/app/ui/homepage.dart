@@ -37,42 +37,27 @@ class _MyHomePageState extends State<MyHomePage> {
     final resTickerParsedbtc =
     await servicebtc.getEndpointData(coin: "btc", method: "ticker");
 
-    final resOrderBookParsedbtc = await servicebtc.getEndpointData(
-        coin: "btc", method: "orderbook");
-
 ///////////////////////////////////
     final serviceltc = new APIService(new MercadoBitcoinAPI());
     final resTickerParsedltc =
     await serviceltc.getEndpointData(coin: "ltc", method: "ticker");
-
-    final resOrderBookParsedltc = await serviceltc.getEndpointData(
-        coin: "ltc", method: "orderbook");
 
     ///////////////////////////////////
     final serviceada = new APIService(new MercadoBitcoinAPI());
     final resTickerParsedada =
     await serviceltc.getEndpointData(coin: "ada", method: "ticker");
 
-    final resOrderBookParsedada = await serviceada.getEndpointData(
-        coin: "ada", method: "orderbook");
-
     ///////////////////////////////////
     final serviceuni = new APIService(new MercadoBitcoinAPI());
     final resTickerParseduni =
     await serviceltc.getEndpointData(coin: "uni", method: "ticker");
-
-    final resOrderBookParseduni = await serviceuni.getEndpointData(
-        coin: "uni", method: "orderbook");
 
     ///////////////////////////////////////
     final serviceusdc = new APIService(new MercadoBitcoinAPI());
     final resTickerParsedusdc =
     await serviceusdc.getEndpointData(coin: "usdc", method: "ticker");
 
-    final resOrderBookParsedusdc = await serviceusdc.getEndpointData(
-        coin: "usdc", method: "orderbook");
-
-    // print(date);
+    // Adiciona o valor da moeda na variavel
     setState(() {
       _buybtc = resTickerParsedbtc['ticker']['buy'].substring(0, 7);
       _buyltc = resTickerParsedltc['ticker']['buy'].substring(0, 7);
@@ -219,13 +204,11 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: <Widget>[
         ],
       ),
-
-
-
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.min,
-        children: [/*Aqui e criado os campos para entrada do usuario assim como
+        children: [
+          /*Aqui e criado os campos para entrada do usuario assim como
                       chamado a metodo que calcula o valor de cada moeda*/
           Column(children: <Widget>[
             Padding(padding: EdgeInsets.all(10)),
